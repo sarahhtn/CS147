@@ -7,6 +7,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 		
 		<link href="style.css" rel="stylesheet" type="text/css">
 	</head>
@@ -31,7 +32,33 @@
 
 		<!-- Let's put in a timer here -->
 		<script type="text/javascript">
+			$(function () {
+    			$("#button").click(function () {
+        			alert("yoroshiku onegaishimas");
+        			$(".box").hide();
+        			$(".box").fadeIn();
+        			$(".box").html("lalala");
+    			});
+			});
+			
+$(function () {
+    $("#button").click(function () {
+        getLocation();
+    });
+});
 
+function getLocation() {
+    if (navigator.geolocation) {
+       navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+
+function showPosition(position) {
+    alert(position.coords.latitude);
+    alert(position.coords.longitude);
+}
 		</script>
 		
 		<!-- Let's put in the geolocation stuff here -->
